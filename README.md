@@ -22,11 +22,15 @@ An order system with customers, products, and orders — plus one additional tab
 
 ## Getting started
 
-1. Fork this repository
-2. Clone your fork: `git clone https://github.com/<your-username>/normalised-schema-api-starter`
+1. **Fork this repository** — click **Fork** at the top of [this page](https://github.com/dutchengineer-org/normalised-schema-api-starter) to create your own copy.
+2. Clone your fork:
+   ```
+   git clone https://github.com/<your-username>/normalised-schema-api-starter
+   cd normalised-schema-api-starter
+   ```
 3. Install dependencies: `uv sync`
-4. Run the tests: `uv run pytest`
+4. Build and run: `uv run pytest`
 
 ## Submitting
 
-Push your completed work to your fork. Paste the repository URL into the capstone submission form in your dashboard.
+When your work is ready, paste your repository URL into the submission form on your [capstone page](https://dutchengineer.org/foundations/relational-data-systems/capstone-normalised-schema-api/).
