@@ -2,23 +2,30 @@
 
 Starter repository for the **Relational Data Systems** capstone on [DutchEngineer](https://dutchengineer.org).
 
-## What you're building
+## What you will build
 
-A normalised PostgreSQL schema with indexes connected to a FastAPI service, validated under load. The schema design decisions you make — normalisation level, index placement, query patterns — will show up directly in query times when load is applied.
+A web service backed by a normalised relational schema — designed, migrated, indexed, and connected the way production systems are built.
+
+The goal is not a toy API. The goal is a schema and service another engineer could run, inspect with query analysis tools, and extend without breaking existing queries. How you build each piece is yours to decide.
+
+## Requirements
+
+1. **Normalised schema** — at least three tables with foreign key relationships. No field that belongs to a different entity lives on the wrong table. Include a written explanation of which normalisation violations the schema avoids and why.
+2. **Migration script** — a script that creates all tables and can tear them down, in the correct dependency order. Running the create step twice must not produce an error.
+3. **Indexes supporting service queries** — at least two indexes that directly support the queries your service runs. Each index is documented with which query it supports and why it will be used rather than a sequential scan.
+4. **Connection pool in the web service** — the service maintains a pool of database connections that is created on startup and closed on shutdown. Individual routes borrow from the pool rather than opening a new connection per request.
+5. **Query plan evidence** — include query analyser output for at least one query in `docs/explain.txt`. The plan must show index usage on the indexed column, not a sequential scan. Include a written explanation of what the plan shows.
+
+## Suggested domain
+
+An order system with customers, products, and orders — plus one additional table of your choice. The domain is a suggestion, not a constraint. Any domain that meets the schema and query requirements qualifies.
 
 ## Getting started
 
 1. Fork this repository
 2. Clone your fork: `git clone https://github.com/<your-username>/normalised-schema-api-starter`
-3. Follow the capstone instructions in your DutchEngineer dashboard
-
-## Structure
-
-```
-normalised-schema-api-starter/
-├── README.md
-└── ...          # you build this
-```
+3. Install dependencies: `uv sync`
+4. Run the tests: `uv run pytest`
 
 ## Submitting
 
